@@ -1,0 +1,96 @@
+@import 'variables';
+
+.navbarwrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-height: 31vh;
+    width: 100vw;
+}
+
+
+
+.logo{
+    height: 15vh;
+    // max-height: 15vh;
+    width: 50%;
+    padding-top: 2%;
+    min-width: 400px;
+    max-width: 800px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+   }
+
+.sociallinkwrapper{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right:1%;
+    top:2%;
+}  
+
+.sociallink{
+    margin: 3px;
+    color: black;
+}
+
+.branchwrapper{
+    max-height: 60%;
+    min-width: 576px;
+    // width: 50%;
+    max-width: 800px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    .branch{
+        min-width: 9rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        .branchlogo{
+            width: 100%;
+            height: 15vh;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .branchname{
+            font-size: 1.2rem;
+            bottom: 1%;
+            // width: 9.5rem;
+        }
+    }
+}
+
+.kidscarelogo{
+    // transform: scale(1.02);
+    filter: drop-shadow(5px -5px 10px #cfd5d8 ) drop-shadow(-5px -5px 10px #cfd5d8) saturate(130%);
+    transition: transform 1s, filter 1s;
+}
+.cosmetologielogo{
+    // transform: scale(1.02);
+    filter: drop-shadow(5px -5px 10px #bee8cf) drop-shadow(-5px -5px 10px #bee8cf) saturate(130%);
+    transition: transform 1s, filter 1s;
+}
+.bodyconceptlogo{
+    // transform: scale(1.02);
+    filter: drop-shadow(5px -5px 10px $ocherglow) drop-shadow(-5px -5px 10px $ocherglow) saturate(130%);
+    transition: transform 1s, filter 1s;
+}
+.curamedixlogo{
+    // transform: scale(1.02);
+    filter: drop-shadow(5px -5px 10px #bedae8) drop-shadow(-5px -5px 10px #bedae8) saturate(130%);
+    transition: transform 1s, filter 1s;
+}
+
+.navbarline{
+    margin-top: 5px;
+    width: 100%;
+    height: 10px;
+    background-color: black;
+}
