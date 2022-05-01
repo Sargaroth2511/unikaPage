@@ -1,15 +1,15 @@
 {
   "name": "unikapage",
   "version": "0.1.0",
-  "private": false,
+  "homepage": "https://sargaroth2511.github.io/unikaPage",
+  "private": true,
   "dependencies": {
     "contentful": "^9.1.22",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4",
-    "homepage": "https://sargaroth2511.github.io/unikaPage/"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^3.2.3",
     "sass": "^1.50.1",
     "sass-loader": "^12.6.0",
     "webpack": "^5.72.0"
