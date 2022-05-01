@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fcb1a180.css",
+    "main.js": "/static/js/main.03cbe9c6.js",
+    "static/media/BodyConceptLogo.png": "/static/media/BodyConceptLogo.29011ebf4e09bff27a81.png",
+    "static/media/KidsCareLogo.png": "/static/media/KidsCareLogo.436ad93d79dab458d6a4.png",
+    "static/media/UnikaLogo.png": "/static/media/UnikaLogo.d58bfd5192519a3dd30e.png",
+    "static/media/CosmetologieLogo.png": "/static/media/CosmetologieLogo.f658ca90e79ee3423244.png",
+    "static/media/CuramedixLogo.png": "/static/media/CuramedixLogo.95545390e1ba2d527272.png",
+    "index.html": "/index.html",
+    "main.fcb1a180.css.map": "/static/css/main.fcb1a180.css.map",
+    "main.03cbe9c6.js.map": "/static/js/main.03cbe9c6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fcb1a180.css",
+    "static/js/main.03cbe9c6.js"
+  ]
+}
