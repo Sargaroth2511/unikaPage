@@ -6,6 +6,7 @@ const Carousel = () => {
     const [isCarouselLoading, setIsCarouselLoading] = useState(true);
     const [carouselSlides, setCarouselSlides] = useState([]);
     const [slideIndex, setSlideIndex] = useState(0);
+    console.log('test')
 
     const extractCarouselSlides = useCallback(
         rawData => {
