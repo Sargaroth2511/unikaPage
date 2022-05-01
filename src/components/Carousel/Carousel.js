@@ -23,26 +23,26 @@ const Carousel = () => {
             setCarouselSlides(extractedSlides)
     }, [])
 
-    // const getCarouselSlides = useCallback(async () => {
-    //     setIsCarouselLoading(true);
-    //     try {
-    //         const response = await client.getEntries({content_type: 'carousel'})
-    //         const responseData = response.items
-    //         if (responseData){
-    //             extractCarouselSlides(responseData)
-    //         } else {
-    //             setCarouselSlides([])
-    //         }
-    //         setIsCarouselLoading(false);
-    //     } catch (error) {
-    //         console.log(error)
-    //         setIsCarouselLoading(false);
-    //     }
-    // },[extractCarouselSlides])
+    const getCarouselSlides = useCallback(async () => {
+        setIsCarouselLoading(true);
+        try {
+            const response = await client.getEntries({content_type: 'carousel'})
+            const responseData = response.items
+            if (responseData){
+                extractCarouselSlides(responseData)
+            } else {
+                setCarouselSlides([])
+            }
+            setIsCarouselLoading(false);
+        } catch (error) {
+            console.log(error)
+            setIsCarouselLoading(false);
+        }
+    },[extractCarouselSlides])
 
-    // useEffect(()=> {
-    //     getCarouselSlides();
-    // },[getCarouselSlides])
+    useEffect(()=> {
+        getCarouselSlides();
+    },[getCarouselSlides])
 
     useEffect(()=> {
         if(slideIndex === carouselSlides.length) setSlideIndex(0)
