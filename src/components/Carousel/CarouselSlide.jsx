@@ -5,7 +5,6 @@ const CarouselSlide = props => {
     const { slideUrl, slideTitle, slideDescription, slideIndex, setSlideIndex } = props
     const [hovered, setHovered] = useState(false)
 
-    const getTargetID = e => console.log(e.target.id)
 
   return (
     <div className="slideWrap" style={{backgroundImage: `url(${slideUrl})`}}>
