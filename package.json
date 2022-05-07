@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "contentful": "^9.1.22",
+    "dotenv": "^16.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
