@@ -1,7 +1,7 @@
 {
   "name": "unikapage",
   "version": "0.1.0",
-  "homepage": "https://sargaroth2511.github.io/unikaPage",
+  "homepage": "http://sargaroth2511.github.io/unikaPage",
   "private": true,
   "dependencies": {
     "contentful": "^9.1.22",
