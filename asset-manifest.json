@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/unikaPage/static/css/main.270572a8.css",
-    "main.js": "/unikaPage/static/js/main.e25777ce.js",
-    "static/media/BodyConceptLogo.png": "/unikaPage/static/media/BodyConceptLogo.29011ebf4e09bff27a81.png",
-    "static/media/KidsCareLogo.png": "/unikaPage/static/media/KidsCareLogo.436ad93d79dab458d6a4.png",
+    "main.css": "/unikaPage/static/css/main.67fd6e02.css",
+    "main.js": "/unikaPage/static/js/main.727a8189.js",
     "static/media/UnikaLogo.png": "/unikaPage/static/media/UnikaLogo.d58bfd5192519a3dd30e.png",
-    "static/media/CosmetologieLogo.png": "/unikaPage/static/media/CosmetologieLogo.f658ca90e79ee3423244.png",
-    "static/media/CuramedixLogo.png": "/unikaPage/static/media/CuramedixLogo.95545390e1ba2d527272.png",
+    "static/media/BodyConceptLogo.png": "/unikaPage/static/media/BodyConceptLogo.88eeb6192ee0ff26e8f9.png",
+    "static/media/KidsCareLogo.png": "/unikaPage/static/media/KidsCareLogo.989c5f9e82c6e117a07e.png",
+    "static/media/CosmetologieLogo.png": "/unikaPage/static/media/CosmetologieLogo.7ecdc7261cf1ee04544c.png",
+    "static/media/CuramedixLogo.png": "/unikaPage/static/media/CuramedixLogo.edcee36f7b6b0ec187c3.png",
     "index.html": "/unikaPage/index.html",
-    "main.270572a8.css.map": "/unikaPage/static/css/main.270572a8.css.map",
-    "main.e25777ce.js.map": "/unikaPage/static/js/main.e25777ce.js.map"
+    "main.67fd6e02.css.map": "/unikaPage/static/css/main.67fd6e02.css.map",
+    "main.727a8189.js.map": "/unikaPage/static/js/main.727a8189.js.map"
   },
   "entrypoints": [
-    "static/css/main.270572a8.css",
-    "static/js/main.e25777ce.js"
+    "static/css/main.67fd6e02.css",
+    "static/js/main.727a8189.js"
   ]
 }
