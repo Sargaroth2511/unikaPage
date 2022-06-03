@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/unikaPage/static/css/main.95fe6194.css",
-    "main.js": "/unikaPage/static/js/main.878dd450.js",
+    "main.css": "/unikaPage/static/css/main.d630e8e3.css",
+    "main.js": "/unikaPage/static/js/main.533ab028.js",
     "static/media/UnikaLogo.png": "/unikaPage/static/media/UnikaLogo.d58bfd5192519a3dd30e.png",
     "static/media/BodyConceptLogo.png": "/unikaPage/static/media/BodyConceptLogo.88eeb6192ee0ff26e8f9.png",
     "static/media/KidsCareLogo.png": "/unikaPage/static/media/KidsCareLogo.989c5f9e82c6e117a07e.png",
     "static/media/CosmetologieLogo.png": "/unikaPage/static/media/CosmetologieLogo.7ecdc7261cf1ee04544c.png",
     "static/media/CuramedixLogo.png": "/unikaPage/static/media/CuramedixLogo.edcee36f7b6b0ec187c3.png",
     "index.html": "/unikaPage/index.html",
-    "main.95fe6194.css.map": "/unikaPage/static/css/main.95fe6194.css.map",
-    "main.878dd450.js.map": "/unikaPage/static/js/main.878dd450.js.map"
+    "main.d630e8e3.css.map": "/unikaPage/static/css/main.d630e8e3.css.map",
+    "main.533ab028.js.map": "/unikaPage/static/js/main.533ab028.js.map"
   },
   "entrypoints": [
-    "static/css/main.95fe6194.css",
-    "static/js/main.878dd450.js"
+    "static/css/main.d630e8e3.css",
+    "static/js/main.533ab028.js"
   ]
 }
