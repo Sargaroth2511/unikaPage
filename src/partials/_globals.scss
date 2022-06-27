@@ -1,7 +1,21 @@
+@import 'variables';
+
+
+html {
+    @media screen and (max-width: $medium) {
+        font-size: 60%;
+    }
+}
+
 body {
     margin: 0;
     font-family: 'Roboto';
     max-width: 100vw;
+}
+
+a{
+    outline: none;
+    text-decoration: none;
 }
 
 .app{
@@ -9,7 +23,34 @@ body {
 }
 
 .container{
+    height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
+    box-sizing: border-box;
+
+}
+
+.lightgreybackground{
+    background-color: $lightgrey !important;
+}
+
+.mintgreenbackground{
+    background-color: $mintgreen !important;
+}
+
+.lightocherbackground{
+    background-color: $lightocher !important;
+}
+
+.babybluebackground{
+    background-color: $babyblue !important;
+}
+
+.coolgreybackground{
+    background-color: $coolgrey !important;
+}
+
+.blackcolor{
+    color: black !important;
 }

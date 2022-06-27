@@ -1,14 +1,61 @@
+@import 'variables';
+
+
 .slideWrap{
     position: relative;
-    min-width: 500px;
-    width: 60vw;
-    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 280px;
+    width: 80vw;
+    max-width: 800px;
     min-height: 40vh;
+    margin-top: 9vh;
     // max-height: ;
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: 2px 2px 2px black ;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.749) ;
+    border-radius:5px ;
+    cursor: pointer;
+    .textwrap{
+        box-sizing: border-box;
+        position: absolute;
+        left:-1%;
+        bottom: 1px;
+        width: 102%;
+        padding-left:5%;
+        padding-right:5%;
+        // background: rgba(255, 255, 255, 0.342);
+        border-radius: 5px;
+        // box-shadow: 5px 4px 3px rgba(117, 116, 116, 0.326);
+        backdrop-filter: blur(5.9px);
+        -webkit-backdrop-filter: blur(5.9px);
+        // border: 1px solid rgba(241, 229, 229, 0.674);
+    }
+}
+
+.slideback{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.74);
+    padding: 1%;
+    overflow: auto;
+    h2{
+        margin-top: 0;
+        margin-bottom: 1vh;
+    }
+    h3{
+        margin: 0;
+        font-size: 1rem;
+    }
+    // p{
+
+    // }
 }
 
 .slide-arrow{
@@ -16,6 +63,7 @@
     height: 2.5rem;
     width: 2.5rem;
     bottom: 50%;
+    cursor: pointer;
     img{
         height: 100%;
         width: 100%;
@@ -41,4 +89,20 @@ right: 1%;
     transform: rotate(180deg) scale(1.08);
     filter: drop-shadow(-3px -3px 2px black);
 }
+
+.Kidscarefocus{
+    background: $lightgreytransparent;
+}
+
+.Cosmetologiefocus{
+    background: $mintgreentransparent;
+}
+
+.Bodyconceptfocus{
+    background: $lightochertransparent;
+}
+
+.Curamedixfocus{
+    background: $babaybluetransparent;
+}    
 

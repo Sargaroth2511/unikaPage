@@ -7,17 +7,29 @@
     flex-direction: column;
     max-height: 31vh;
     width: 100vw;
+    -webkit-touch-callout: none;  
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 
 
 .logo{
+    @media screen and (max-width: $medium) {
+        height: 6vh;
+    }
+    cursor: pointer;
+    
+    min-height: 8vh;
     height: 15vh;
     // max-height: 15vh;
-    width: 50%;
-    padding-top: 2%;
-    min-width: 400px;
+    width: 70%;
+    min-width: 280px;
     max-width: 800px;
+    padding-bottom: 2vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -29,68 +41,315 @@
     position: absolute;
     right:1%;
     top:2%;
+    gap: 5px;
+
+    a:nth-child(-n+2){
+        transform: scale(1.2);
+        margin-right: 2px;
+    }
 }  
 
 .sociallink{
-    margin: 3px;
     color: black;
+    cursor: pointer;
 }
 
 .branchwrapper{
     max-height: 60%;
-    min-width: 576px;
-    // width: 50%;
+    min-width: 280px;
+    // width: 50vw;
     max-width: 800px;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
+    // display: flex;
     .branch{
-        min-width: 9rem;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
+        margin: 3px;
+        position: relative;
+        
+
         .branchlogo{
             width: 100%;
-            height: 15vh;
+            height: 10vh;
+            max-height: 123px;
+            max-width: 117px;
+            @media screen and (max-width: $medium) {
+                height: 15vw;
+                width: 23.8vw;
+            }
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
+            cursor: pointer;
         }
         
         .branchname{
+            cursor: pointer;
             font-size: 1.2rem;
+            font-weight: 700;
             bottom: 1%;
-            // width: 9.5rem;
+            min-width: 9.5rem;
+            background-color: $coolgrey;
+            color: white;
+            padding: 3px;
+            margin-top: 1vh;
+            border-radius: 5px;
+            div{
+                text-transform: uppercase;
+                font-weight: 300;
+            }
         }
     }
 }
 
-.kidscarelogo{
-    // transform: scale(1.02);
-    filter: drop-shadow(5px -5px 10px #cfd5d8 ) drop-shadow(-5px -5px 10px #cfd5d8) saturate(130%);
-    transition: transform 1s, filter 1s;
+
+
+.informationsign{
+    height: 4vw;
+    width: 4vw;
+    bottom: 17%;
+    right: 2%;
+    position: absolute;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
-.cosmetologielogo{
-    // transform: scale(1.02);
+
+.branchnamehover{
+    -webkit-box-shadow: 1px 1px 15px 2px rgba(0,0,0,0.76); 
+    box-shadow: 1px 1px 15px 2px rgba(0,0,0,0.76);
+    transition: -webkit-box-shadow 1s, box-shadow 1s;
+}
+
+.glowgrey{
+    filter: drop-shadow(5px -5px 10px #cfd5d8 ) drop-shadow(-5px -5px 10px #caaba3) saturate(130%);
+    transition: filter 1s;
+}
+.glowgreen{
     filter: drop-shadow(5px -5px 10px #bee8cf) drop-shadow(-5px -5px 10px #bee8cf) saturate(130%);
-    transition: transform 1s, filter 1s;
+    transition: filter 1s;
 }
-.bodyconceptlogo{
-    // transform: scale(1.02);
+.glowocher{
     filter: drop-shadow(5px -5px 10px $ocherglow) drop-shadow(-5px -5px 10px $ocherglow) saturate(130%);
-    transition: transform 1s, filter 1s;
+    transition: filter 1s;
 }
-.curamedixlogo{
-    // transform: scale(1.02);
+.glowblue{
     filter: drop-shadow(5px -5px 10px #bedae8) drop-shadow(-5px -5px 10px #bedae8) saturate(130%);
-    transition: transform 1s, filter 1s;
+    transition: filter 1s;
+}
+
+.focusbranch{
+    transform: scale(1.2) ;
+    transition: transform 0.5s;
+}
+
+.faded{
+    transform: scale(1.0);
+    transition: transform 2s;
 }
 
 .navbarline{
+    display: flex;
+    justify-content: center;
     margin-top: 5px;
     width: 100%;
-    height: 10px;
-    background-color: black;
+    .nav-buttons{
+        display: flex;
+        justify-content: space-around;
+        min-width: 660px;
+        width: 60%;
+        max-width: 800px;
+        color: white;
+        font-size: 1.2rem;
+        div{
+            cursor: pointer;
+
+        }
+    }
+    .quadrat{
+        margin-right: auto;
+        height: 3rem;
+        width: 3rem;
+        padding-left: 2vw;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    .phone{
+        height: 3rem;
+        width: 3rem;
+    }
+
+    .invertfilter{
+        filter: invert(100%);
+    }
+
+    @keyframes wiggle {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+        20% { transform: translate(-3px, 0px) rotate(1deg); }
+        30% { transform: translate(3px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(1deg); }
+        50% { transform: translate(-1px, 2px) rotate(-1deg); }
+        60% { transform: translate(-3px, 1px) rotate(0deg); }
+        70% { transform: translate(3px, 1px) rotate(-1deg); }
+        80% { transform: translate(-1px, -1px) rotate(1deg); }
+        90% { transform: translate(1px, 2px) rotate(0deg); }
+        100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+
+    .hoverphone{
+        animation: wiggle 1s;
+    }
+}
+
+.dropdown{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    line-height: 3rem;
+    top: 100%;
+    z-index: 1;
+    max-height: 75vh;
+    color: black;
+    background: rgba(218, 206, 206, 0.644);
+    border-radius: 5px;
+    box-shadow: 5px 4px 30px rgba(117, 116, 116, 0.326);
+    backdrop-filter: blur(5.9px);
+    -webkit-backdrop-filter: blur(5.9px);
+    border: 1px solid rgba(241, 229, 229, 0.674);
+    overflow: auto;
+    h3{
+        margin: 1vh;
+        text-transform: uppercase;
+    }
+    h4{
+        margin: 1vh;
+        margin-top: 0;
+        text-transform: uppercase;
+        padding-bottom: 0.5vh;
+    }
+    :last-child{
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    :first-child{
+        margin-top: 2px;
+    }
+}
+
+#Kidscaredropdown{
+    left:0;
+}
+
+#Curamedixdropdown{
+    left: -100%;
+}
+
+.treatmenttitle{
+    cursor: pointer;
+    list-style-type: none;
+    text-align: left;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.635);
+    padding: 2px;
+    border-radius: 2px;
+   
+}
+
+
+.treatmenttitlehover{
+    color: white;
+    background: rgba(26, 25, 25, 0.555);
+}
+
+.Kidscarefocus{
+    background-color: $lightgreytransparent;
+}
+
+.Cosmetologiefocus{
+    background-color: $mintgreentransparent;
+}
+
+.Bodyconceptfocus{
+    background-color: $lightochertransparent;
+}
+
+.Curamedixfocus{
+    background-color: $babaybluetransparent;
+}   
+
+.burgermenuwrapper{
+    box-sizing: border-box;
+    width: 40vw;
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+    top: 101%;
+    left: 1% ;
+    z-index: 3;
+
+    .burgermenu{
+        background-color: white;
+        padding: 2px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        line-height: 5rem;
+        border-bottom: 1px solid black;
+        font-size: 1.5rem;
+        z-index: 5;
+    }
+
+    .rightarrow{
+
+        height: 1.5rem;
+    }
+
+    .burgersubmenuwrapper{
+        position: absolute;
+        left: 0;
+        min-width: 40vw;
+        max-width: max-content;
+        max-height: 100vh;
+        box-sizing: border-box;
+        border: 1px solid black;
+        top: -1px;
+        display: flex;
+        background-color: white;
+        overflow: auto;
+        z-index: -1;
+    }
+
+    .burgerbranch{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 2px;
+        text-transform: uppercase;
+        font-weight: 600;
+        line-height: 5rem;
+        font-size: 1.5rem;
+        border-bottom: 1px solid black;
+    }
+}
+
+.moveleft{
+    // transform: translateX(-35vw) ;
+    // transition: transform 0.5s 0.2s;
+}
+
+.expand{
+  transform:translateX(40vw);
+  transition: transform 0.8s;
 }

@@ -1,63 +1,38 @@
-import React, { useState } from 'react'
-import logo from '../../Images/NavBar/UnikaLogo.png';
-import kidscarelogo from '../../Images/NavBar/KidsCareLogo.png';
-import cosmetologielogo from '../../Images/NavBar/CosmetologieLogo.png';
-import bodyconceptlogo from '../../Images/NavBar/BodyConceptLogo.png';
-import curamedixlogo from '../../Images/NavBar/CuramedixLogo.png';
+import React, { useState, useEffect } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const Navbar = () => {
+import Logo from './components/Logo';
+import Sociallinks from './components/Sociallinks';
+import Branches from './components/Branches';
+import NavbarLine from './components/NavbarLine';
+import Burgermenu from './components/Burgermenu/components/Burgermenu';
+
+
+
+const Navbar = ( {contentfulData, treatmentsRef, isSmallScreen} ) => {
     const [hovered, setHovered] = useState(false)
-    
+    const [focused, setFocused] = useState(false)
+    const [blured, setBlured] = useState(false)
+    const [showBurgermenu, setShowBurgermenu] = useState(false)
+    const navigate = useNavigate();
+    const location = useLocation();
+
 
   return (
     <div>
         <div className="navbarwrapper">
-            <div className="logo" style={{backgroundImage:`url(${logo})`}} alt="logo"></div>
-            <div className="sociallinkwrapper">
-                <a href="#" className="sociallink fa fa-instagram"></a>
-                <a href="#" className="sociallink fa fa-facebook"></a>
-                <a className="sociallink material-icons-outlined">email</a>
-                <a className="sociallink material-icons-outlined">phone</a>
-            </div>
-            <div className="branchwrapper">
-                <div className='branch'>
-                    <div style={{backgroundImage: `url(${kidscarelogo})`}}
-                    id='kidsCareLogo' className={hovered==='kidsCareLogo' ? 'kidscarelogo branchlogo': 'branchlogo'} 
-                    alt="kidscare" onMouseEnter={(e)=>setHovered(e.target.id)} onMouseLeave={()=>setHovered(false)}>
-                    </div>    
-                    <div className="branchname">
-                        KIDSCARE
-                    </div>
-                </div>
-                <div className='branch'>
-                    <div style={{backgroundImage: `url(${cosmetologielogo})`}}
-                    id='cosmetologieLogo' className={hovered==='cosmetologieLogo' ? 'cosmetologielogo branchlogo': 'branchlogo'}
-                    alt="cosmetologie" onMouseEnter={(e)=>setHovered(e.target.id)} onMouseLeave={()=>setHovered(false)}>
-                    </div>
-                    <div className="branchname">
-                        COSMETOLOGIE
-                    </div>
-                </div>
-                <div className='branch'>
-                <div style={{backgroundImage: `url(${bodyconceptlogo})`}}
-                    id='bodyConceptLogo' className={hovered==='bodyConceptLogo' ? 'bodyconceptlogo branchlogo': 'branchlogo'} 
-                    alt="bodyconcept" onMouseEnter={(e)=>setHovered(e.target.id)} onMouseLeave={()=>setHovered(false)}>
-                    </div>
-                    <div className="branchname">
-                        BODYCONCEPT
-                    </div>
-                </div>
-                <div className='branch'>
-                <div style={{backgroundImage: `url(${curamedixlogo})`}}
-                    id='curamedixLogo' className={hovered==='curamedixLogo' ? 'curamedixlogo branchlogo': 'branchlogo'}
-                    alt="curamedix" onMouseEnter={(e)=>setHovered(e.target.id)} onMouseLeave={()=>setHovered(false)}>
-                    </div>
-                    <div className="branchname">
-                        CURAMEDIX
-                    </div>
-                </div>
-            </div>
-            <div className="navbarline"></div>
+            <Logo navigate={navigate} location={location} />
+            <Sociallinks isSmallScreen={isSmallScreen} />
+            <Branches useHovered={ [hovered, setHovered] } isSmallScreen={isSmallScreen}
+             useFocused={ [focused, setFocused] } useBlured={ [blured, setBlured] }
+             contentfulData={contentfulData} navigate={navigate} treatmentsRef={treatmentsRef}
+             location={location}/>
+            <NavbarLine useHovered={ [hovered, setHovered] } isSmallScreen={isSmallScreen}
+             location={location} useShowBurgermenu={ [showBurgermenu, setShowBurgermenu] }/>
+            {showBurgermenu && 
+            <Burgermenu contentfulData={contentfulData} setShowBurgermenu={setShowBurgermenu}
+             navigate={navigate} treatmentsRef={treatmentsRef} />} 
+        
         </div>
     </div>
   )

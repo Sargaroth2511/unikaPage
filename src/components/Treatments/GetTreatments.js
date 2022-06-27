@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useCallback } from 'react'
-import { client } from '../../client';
-import CarouselSlide from './CarouselSlide';
+import React, { useState, useCallback, useEffect } from 'react'
 
-const Carousel = ( { useContentful } ) => {
-    const [contentfulData, setContentfulData] = useContentful
+import { client } from '../../client';
+
+const GetTreatments = () => {
+    const [contentfulData, setContentfulData] = useState([])
     const [isCarouselLoading, setIsCarouselLoading] = useState(true);
     const [carouselSlides, setCarouselSlides] = useState([]);
     const [slideIndex, setSlideIndex] = useState(0);
@@ -53,7 +53,6 @@ const Carousel = ( { useContentful } ) => {
         if(slideIndex === -1) setSlideIndex(carouselSlides.length-1)
 
         const slideInterval = setInterval(() => {
-            console.log(slideIndex, carouselSlides.length)
             if(slideIndex <= carouselSlides.length -1) setSlideIndex(slideIndex + 1)
             if(slideIndex === carouselSlides.length -1) setSlideIndex(0)
         }, 50000);
@@ -64,30 +63,8 @@ const Carousel = ( { useContentful } ) => {
     useEffect(() => {
         setContentfulData(carouselSlides)
     }, [carouselSlides])
-
-    // useEffect(()=> {
-    //     if(slideIndex === carouselSlides.length) setSlideIndex(0)
-    //     if(slideIndex === -1) setSlideIndex(carouselSlides.length-1)
-    // },[slideIndex])
-
-
-  return (
-    <div>
-        {carouselSlides.map((item, index)=> {
-            if(index === slideIndex){
-                const { id, slideUrl, slideTitle, slideDescription,
-                        slideBranch, slideCompleteDescription } = item
-                return (
-                <CarouselSlide key={id} slideUrl={slideUrl} slideTitle={slideTitle} 
-                slideDescription={slideDescription} slideCompleteDescription={slideCompleteDescription}
-                slideBranch={slideBranch} index={index} setSlideIndex={setSlideIndex} 
-                slideIndex={slideIndex}/>
-            )
-            }
-            
-        })}
-    </div>
-  )
+    
+    return contentfulData;
 }
 
-export default Carousel
+export default GetTreatments
