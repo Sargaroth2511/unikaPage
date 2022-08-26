@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/unikaPage/static/css/main.8bbde7f3.css",
+    "main.css": "/unikaPage/static/css/main.8d720636.css",
     "main.js": "/unikaPage/static/js/main.ad5ecddb.js",
     "static/media/UnikaLogo.png": "/unikaPage/static/media/UnikaLogo.d58bfd5192519a3dd30e.png",
     "static/media/BodyConceptLogo.png": "/unikaPage/static/media/BodyConceptLogo.88eeb6192ee0ff26e8f9.png",
@@ -10,11 +10,11 @@
     "static/media/Spinner-5.gif": "/unikaPage/static/media/Spinner-5.e9202c75d969bfbffe5a.gif",
     "static/media/MapsLocation.png": "/unikaPage/static/media/MapsLocation.366643f6d9919293260c.png",
     "index.html": "/unikaPage/index.html",
-    "main.8bbde7f3.css.map": "/unikaPage/static/css/main.8bbde7f3.css.map",
+    "main.8d720636.css.map": "/unikaPage/static/css/main.8d720636.css.map",
     "main.ad5ecddb.js.map": "/unikaPage/static/js/main.ad5ecddb.js.map"
   },
   "entrypoints": [
-    "static/css/main.8bbde7f3.css",
+    "static/css/main.8d720636.css",
     "static/js/main.ad5ecddb.js"
   ]
 }
