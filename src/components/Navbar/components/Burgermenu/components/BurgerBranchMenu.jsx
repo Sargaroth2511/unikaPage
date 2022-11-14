@@ -1,16 +1,30 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import handleTreatmentClick from '../../../../helpers/handleTreatmentClick';
 
 
-const BurgerBranchMenu = ( {contentfulData, branch, setShowBurgermenu, navigate, treatmentsRef } ) => {
-    
+const BurgerBranchMenu = ( { props, branch, type } ) => {
+    const {useActivateServicemenu, contentfulData, setBurgerMenuActivated, navigate, treatmentsRef}= props
+    const [activateServicemenu, setActivateServicemenu] = useActivateServicemenu
     const [menuLoaded, setMenuLoaded] = useState(false)
 
     const treatmentClickHandle = i => {
-        navigate(`unikaPage/${branch}`)
+        navigate(branch)
         setTimeout(() => {
-            treatmentsRef.current[i].scrollIntoView({behavior:'smooth'})
-            setShowBurgermenu(false)
+            handleTreatmentClick(treatmentsRef, i)
+            setBurgerMenuActivated(false)
         }, 100);
+    }
+
+    const translateType = originalType => {
+        switch (originalType) {
+            case 'Kurs':
+                return 'course'
+            case 'Behandlung':
+                return 'treatment'
+            default:
+                console.log(originalType, 'no Type matches')
+                break;
+        }
     }
 
     useEffect(() => {
@@ -20,23 +34,20 @@ const BurgerBranchMenu = ( {contentfulData, branch, setShowBurgermenu, navigate,
         }
     },[])
 
-    const addClassNames = () => {
-        return menuLoaded ? 'expand' : '';
-    }
+  
 
     return (
-        <div className={'burgersubmenuwrapper ' + (addClassNames())}>
-            <div>
+        <div className={'burgersubmenuwrapper '}>
                 {contentfulData.map((data, i) => {
                     const treatment = data.slideTitle
-                    if (data.slideBranch === branch) 
+                    const serviceType = translateType(data.slideType)
+                    if (data.slideBranch === branch && branch+serviceType === type || data.slideBranch === branch && !type) 
                     return (
-                    <div className={'burgerbranch'} 
+                    <div className={'burgerbranch glow ' + (data.slideBranch.toLowerCase()+'color')} 
                     id={treatment} key={treatment} onClick={()=>treatmentClickHandle(i)}>
                     {treatment}</div>
-                    )
+                    ) 
                 })}
-            </div>
         </div> 
   )
 }

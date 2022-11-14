@@ -1,29 +1,51 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 /**
  * Hook that alerts clicks outside of the passed ref
  */
+
 function useOutsideAlerter(ref, showMenu, exception) {
+  const lastTouchRef = useRef([])
+  const [isSwiping, setIsSwiping] = useState(false)
+
+
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
      */
+
+    const getSwipe = (e) => {
+      setIsSwiping(true)
+    }
+
+ 
+
     function handleClickOutside(event) {
-      console.log(event.target)
-      if(event.target.id !== exception){
+
+      if(event.target.id !== exception && !isSwiping){
         if (ref.current && !ref.current.contains(event.target)) {
           showMenu(false)
+
+
           // alert("You clicked outside of me!");
         }
       }
+      setIsSwiping(false)
+
     }
+    
     // Bind the event listener
-    document.addEventListener("touchstart", handleClickOutside);
+    document.addEventListener("touchend", handleClickOutside);
+    document.addEventListener('touchmove', getSwipe )
+
     return () => {
       // Unbind the event listener on clean up
-      document.removeEventListener("touchstart", handleClickOutside);
+      document.removeEventListener("touchend", handleClickOutside);
+      document.removeEventListener('touchmove', getSwipe )
+
+
     };
-  }, [ref]);
+  }, [ref, isSwiping]);
 }
 
 /**

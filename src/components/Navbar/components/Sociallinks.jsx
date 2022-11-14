@@ -1,4 +1,6 @@
 import React from 'react'
+import MapsLocation from '../../../Images/NavBar/MapsLocation.png';
+
 
 const Sociallinks = ({ isSmallScreen }) => {
   return (
@@ -9,6 +11,8 @@ const Sociallinks = ({ isSmallScreen }) => {
             <a className="sociallink material-icons-outlined"
                href='mailto:unika-institut@gmx.de'>email</a>
             <a className="sociallink material-icons-outlined">phone</a>
+            <a href='https://goo.gl/maps/3PsFY9dAGmZejPcv9' 
+            className='mapslocation sociallink' style={{backgroundImage:`url(${MapsLocation})`}} alt="logo"></a>
         </div>} 
       </>
     

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import next from './../../Images/Carousel/next.png'
+import spinnner from '../../Images/Carousel/Spinner-5.gif'
+
 
 const CarouselSlide = props => {
     const { slideUrl, slideTitle, slideDescription, 
-            slideIndex, setSlideIndex, slideCompleteDescription, slideBranch } = props
+            slideIndex, setSlideIndex, slideCompleteDescription, 
+            slideBranch, useFlipped, isCarouselLoading } = props
     const [hovered, setHovered] = useState(false)
-    const [flipped, setFlipped] = useState(false)
+    const [flipped, setFlipped] = useFlipped;
 
     const swipeHandler = useSwipeable(
       {onSwipedLeft: ()=>setSlideIndex(slideIndex - 1), preventScrollOnSwipe: true ,
@@ -28,9 +31,17 @@ const CarouselSlide = props => {
       }
     }
 
-    const flipCard = () => {
-      setFlipped(!flipped)
+    const flipCard = e => {
+      const arrowIDs = ['slideArrowLeft', 'slideArrowRight']
+      !arrowIDs.includes(e.target.id) && setFlipped(!flipped);
     }
+
+    const arrowClickHandler = (e, factor) => {
+      console.log(e.target.id)
+      setSlideIndex(slideIndex + (1*factor))
+    }
+
+
 
 
 
@@ -38,7 +49,7 @@ const CarouselSlide = props => {
   return (
     <div className='slideContainer'>
       {!flipped && <div className="slideWrap" style={{backgroundImage: `url(${slideUrl})`}}
-      onClick={()=>flipCard()} {...swipeHandler}>
+      onClick={(e)=>flipCard(e)} {...swipeHandler}>
         <div className={'textwrap ' +(addClassNames(slideBranch))}>
           <h2>{slideTitle}</h2>
           <p>{slideDescription}</p>
@@ -47,16 +58,16 @@ const CarouselSlide = props => {
             <img src={next} alt="arrow-left"id='slideArrowLeft'
             onMouseEnter={(e)=>setHovered(e.target.id)} onMouseLeave={()=>setHovered(false)}
             className={`slide-arrow-left slide-arrow ${hovered === 'slideArrowLeft' ? 'hovered-left': ''}`}
-            onClick={()=>setSlideIndex(slideIndex - 1)}/>
+            onClick={(e)=>arrowClickHandler(e, -1)}/>
         </div>
         <div>
             <img src={next} alt="arrow-right" id='slideArrowRight'
             className={`slide-arrow-right slide-arrow ${hovered === 'slideArrowRight' ? 'hovered-right': ''}`}
             onMouseEnter={(e)=>setHovered(e.target.id)} onMouseLeave={()=>setHovered(false)}
-            onClick={()=>setSlideIndex(slideIndex + 1)}/>
+            onClick={(e)=>arrowClickHandler(e, 1)}/>
         </div>
       </div>}
-      {flipped && <div className='slideWrap' onClick={()=>flipCard()}
+      {flipped && <div className='slideWrap' onClick={(e)=>flipCard(e)}
         style={{backgroundImage: `url(${slideUrl})`}}>
           <div className="slideback">
             <h2>{slideTitle}</h2>

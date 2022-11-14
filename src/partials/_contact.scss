@@ -1,0 +1,68 @@
+button{
+    cursor: pointer;
+}
+
+.googlemap{
+    max-width: 100%;
+    margin: 2vh;
+    overflow: hidden;
+    -webkit-box-shadow: 5px 5px 15px -1px #000000; 
+    box-shadow: 5px 5px 15px -1px #000000;
+
+}
+
+.contactcontainer{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    font-size: 1.2rem;
+
+}
+
+.onecolumn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.threecolumns{
+    display: flex;
+
+    flex-direction: row;
+}
+
+.adresscontainer{
+    div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.phoneandemailcontainer{
+    div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    :first-child{
+        margin-bottom:2vh;
+    }
+}
+
+.socialmediacontainer{
+    margin-bottom: 1vh;
+    div{
+        display: flex;
+    }
+    .socialmediatitle{
+        flex-direction: column;
+        align-items: center;
+        margin-bottom:1vh;
+    }
+    a{
+        line-height: 1.4rem;
+    }
+    
+}

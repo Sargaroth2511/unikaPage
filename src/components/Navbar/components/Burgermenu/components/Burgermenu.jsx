@@ -1,66 +1,85 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import rightarrow from './../../../../../Images/NavBar/right-arrow.png'
-import BurgerBranchMenu from './BurgerBranchMenu'
-import OutsideAlerter from '../../../../helpers/OutsideAlerter'
+import OutsideAlerter from '../../../../helpers/OutsideAlerter';
+import ServiceMenu from './ServiceMenu';
 
 
 
 
-const Burgermenu = ( {contentfulData, setShowBurgermenu, navigate, treatmentsRef} ) => {
-    const [showSubmenu, setShowSubmenu] = useState(false)
+const Burgermenu = ( {contentfulData, useActivateBurgermenu, navigate, treatmentsRef, setHitTopOfScreen} ) => {
+    const [burgerMenuActivated, setBurgerMenuActivated] = useActivateBurgermenu;
+    const [activateServicemenu, setActivateServicemenu] = useState(false)
+    const [showBurgerMenu, setShowBurgerMenu] = useState(false)
+    const [showServicemenu, setShowServicemenu] = useState(false)
 
-    const toggleSubmenu = branch => {
-        showSubmenu !== branch ? setShowSubmenu(branch) : setShowSubmenu(false);
+    useEffect(() => {
+        !activateServicemenu && setTimeout(() => {
+          setShowServicemenu(false)
+        }, 200);
+        activateServicemenu && setShowServicemenu(true)
+      }, [activateServicemenu])
+
+
+
+    
+
+
+    const handleBurgerMenuClick = (navigateTo) => {
+       setBurgerMenuActivated(false)
+        setHitTopOfScreen(false)
+        navigate(navigateTo)
+    }
+
+
+    // check animations when burgermenu is closed
+
+    useEffect(()=> {
+        if(!burgerMenuActivated){ 
+            setShowServicemenu(false)
+            setTimeout(() => {
+                setShowBurgerMenu(false)
+            }, 180);
+            setActivateServicemenu(false)
+        } else setShowBurgerMenu(true)    
+    }, [burgerMenuActivated, activateServicemenu])
+
+    const animateBurgermenuWrapper = () => {
+        if (activateServicemenu) return 'moveright'
+        if (!activateServicemenu && burgerMenuActivated) return 'moveleft'
+        else if (!activateServicemenu && !burgerMenuActivated) return 'moveright'
+
     }
 
   return (
-      <OutsideAlerter showMenu={setShowBurgermenu} exception={'burger'}>
-        <div className={'burgermenuwrapper '+(showSubmenu ? 'moveleft':'')}>
-            <div className='burgermenu'>Kidscare
-                <div><img className='rightarrow' src={rightarrow} alt="arrow-right"
-                onClick={()=>toggleSubmenu('Kidscare')}/>
-                </div>
-            {showSubmenu === 'Kidscare' && 
-            <BurgerBranchMenu contentfulData={contentfulData} branch={'Kidscare'} 
-            setShowBurgermenu={setShowBurgermenu} navigate={navigate} 
-            treatmentsRef={treatmentsRef} />}
-        </div>
-        <div className='burgermenu'>Cosmetologie
-                <div><img className='rightarrow' src={rightarrow} alt="arrow-right"
-                onClick={()=>toggleSubmenu('Cosmetologie')}/></div>
-            </div>
-            {showSubmenu === 'Cosmetologie' && 
-            <BurgerBranchMenu contentfulData={contentfulData} branch={'Cosmetologie'} 
-            setShowBurgermenu={setShowBurgermenu} navigate={navigate} 
-            treatmentsRef={treatmentsRef} />}
+      <OutsideAlerter showMenu={setBurgerMenuActivated} exception={'burger'} >
         
-        <div className='burgermenu'>Bodyconcept
-                <div><img className='rightarrow' src={rightarrow} alt="arrow-right"
-                onClick={()=>toggleSubmenu('Bodyconcept')}/></div>
+            {showBurgerMenu && <>
+                <div className={'burgermenuwrapper ' +(animateBurgermenuWrapper())} >
+                {showServicemenu && 
+            <ServiceMenu useActivateServicemenu={[activateServicemenu, setActivateServicemenu]} 
+                         contentfulData={contentfulData} useActivateBurgermenu={useActivateBurgermenu} 
+                         navigate={navigate} treatmentsRef={treatmentsRef}/>
+            }
+            <div className='overflowcontainer'>
+            <div className={'burgermenu' +(burgerMenuActivated? ' animateshowburgermenu':' animateremoveburgermenu')} 
+            onClick={()=>setActivateServicemenu(!activateServicemenu)}>Leistungen
+                {activateServicemenu && <div onClick={()=>setActivateServicemenu(!activateServicemenu)}>
+                    <img className='arrow' src={rightarrow} alt="arrow"/></div>}
             </div>
-            {showSubmenu === 'Bodyconcept' && 
-            <BurgerBranchMenu contentfulData={contentfulData} branch={'Bodyconcept'} 
-            setShowBurgermenu={setShowBurgermenu} navigate={navigate} 
-            treatmentsRef={treatmentsRef} />}
-       
-            <div className='burgermenu'>Curamedix
-                <div><img className='rightarrow' src={rightarrow} alt="arrow-right"
-                onClick={()=>toggleSubmenu('Curamedix')}/></div>
-            </div>
-            {showSubmenu === 'Curamedix' && 
-            <BurgerBranchMenu contentfulData={contentfulData} branch={'Curamedix'} 
-            setShowBurgermenu={setShowBurgermenu} navigate={navigate} 
-            treatmentsRef={treatmentsRef} />}
            
-
-            <div className='burgermenu'>Kontakt</div>
-            <div className='burgermenu'>Shop</div>
-            <div className='burgermenu'>Über uns</div>
-            <div className='burgermenu'>...mehr
-                <div><img className='rightarrow' src={rightarrow} alt="arrow-right"/></div>
+            <div className={'burgermenu' +(burgerMenuActivated? ' animateshowburgermenu':' animateremoveburgermenu')} 
+            onClick={()=>handleBurgerMenuClick('/Contact')}>Kontakt</div>
+            <div className={'burgermenu' +(burgerMenuActivated? ' animateshowburgermenu':' animateremoveburgermenu')} 
+            onClick={()=>handleBurgerMenuClick('/Shop')}>Shop</div>
+            <div className={'burgermenu' +(burgerMenuActivated? ' animateshowburgermenu':' animateremoveburgermenu')} 
+            onClick={()=>handleBurgerMenuClick('/About')}>Über uns</div>
             </div>
-        </div>
+                
+                </div>
+            </>}
+            
+        
 
       </OutsideAlerter>
     

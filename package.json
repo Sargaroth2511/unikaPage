@@ -6,6 +6,7 @@
   "dependencies": {
     "contentful": "^9.1.22",
     "dotenv": "^16.0.0",
+    "google-map-react": "^2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-responsive": "^9.0.0-beta.6",

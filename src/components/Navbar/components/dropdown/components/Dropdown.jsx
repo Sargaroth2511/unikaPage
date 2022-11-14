@@ -1,56 +1,41 @@
 import React, { useState } from 'react'
+import handleTreatmentClick from '../../../../helpers/handleTreatmentClick';
+import getBranchDescription from '../../Branches/helpers/getBranchDescription';
 
-const Dropdown = ( {useFocused, contentfulData, useShowDropdown, isSmallScreen,
-                    navigate, treatmentsRef, useTreatmentClick} ) => {
-  const [focused, setFocused] = useFocused;
+const Dropdown = ( {setFocused, contentfulData, useShowDropdown, isSmallScreen,
+                    navigate, treatmentsRef, setTreatmentClick} ) => {
+
   const [showDropdown, setShowDropdown] = useShowDropdown;
-  const [treatmentClick, setTreatmentClick] = useTreatmentClick;                    
-
   const [hovered, setHovered] = useState(false);
-
 
   const addClassNames = (id, hoverClass, dropdownClass) => {
     let addedClassNames = [];
     if(hovered === id) addedClassNames.push(hoverClass)
     if(showDropdown === id) addedClassNames.push(dropdownClass);
     return addedClassNames.join(' ') 
-  }
+  };
 
   const handleMouseEnter = e => {
     setHovered(e.target.id)
-  }
+  };
 
   const treatmentClickHandle =  i => {
-    navigate(`unikaPage/${showDropdown}`)
+    navigate(`/${showDropdown}`)
     setTimeout(() => {
-      treatmentsRef.current[i].scrollIntoView({behavior:'smooth'})
+      handleTreatmentClick(treatmentsRef, i)
       setFocused(false)
       setShowDropdown(false)
       setTreatmentClick(true)
     }, 100);
   }
  
-  const branchDescription = showDropdown => {
-    switch (showDropdown) {
-      case 'Kidscare':
-        return 'Kinder & Familie'
-      case 'Cosmetologie':
-          return 'Kosmetikbehandlungen'
-      case 'Bodyconcept':
-        return 'Körperästhetik'
-      case 'Curamedix':
-        return 'Prävention'        
-      default:
-        break;
-    }
-  }
 
   return (
     <div id={`${showDropdown}dropdown`}
     className={'dropdown ' + (addClassNames(showDropdown, '', `${showDropdown}focus`))}>
       {isSmallScreen && <div>
         <h3>{showDropdown}</h3>
-        <h4>{branchDescription(showDropdown)}</h4>
+        <h4>{getBranchDescription(showDropdown)}</h4>
       </div>}
       {contentfulData.map((data, i) => {
         const treatment = data.slideTitle

@@ -10,8 +10,10 @@
     width: 80vw;
     max-width: 800px;
     min-height: 40vh;
-    margin-top: 9vh;
-    // max-height: ;
+    margin-top: 37vh;
+    @media screen and (max-width: $medium) {
+        margin-top: 33vh;
+    }
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
