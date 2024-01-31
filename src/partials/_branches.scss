@@ -1,8 +1,13 @@
 @import 'variables';
 
+.branchcontainer{
+    // position: absolute;
+    margin-top: 2vh;
+}
 
 
-.treatmentcontainer{
+
+.treatment-container{
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
@@ -24,7 +29,7 @@
         margin: 0;
     }
 
-    .imgcontainer{
+    .img-container{
         display: flex;
         float: left;
         width: 60%;
@@ -35,7 +40,7 @@
     
     }
 
-    .treatmentimg{
+    .treatment-img{
         width: 100%;
         object-fit: cover;    
         -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.8); 
@@ -43,7 +48,7 @@
         border-radius: 2px;
     }
     
-    .completedescription{
+    .complete-description{
         font-size: 1.3rem;
     }
     
@@ -59,7 +64,7 @@
 
 
 
-.backtotop{
+.to-top-arrow{
     position: fixed;
     bottom: 1vh;
     right: 1vh;

@@ -1,19 +1,19 @@
-export const getElementsHeight = (id) => {
-  if(document.getElementById(id))
-  return document.getElementById(id).clientHeight;
-}
-
-export const getElementsWidth = (id) => {
-  if(document.getElementById(id))
-  return document.getElementById(id).offsetWidth;
-}
+import { getElementsHeight } from "./messureElements";
 
 const handleTreatmentClick = (treatmentsRef, i) => {
-  const height = getElementsHeight('navbarline') 
-    const element = treatmentsRef.current[i]
-    const y = element.getBoundingClientRect().top + window.pageYOffset - (height+30);
+  const navBarBottom = getElementsHeight('navbar-line') 
+  const topScreenDistance = navBarBottom+22
+  const requestedTreatment = treatmentsRef.current[i]
+  const yPosition = requestedTreatment.getBoundingClientRect().top + window.pageYOffset - topScreenDistance;
+  const navbarLine = document.getElementById('navbar-line');
 
-    window.scrollTo({top: y, behavior: 'smooth'});
-  }
 
-  export default handleTreatmentClick;
+  [...navbarLine.classList].includes('top-line') ? window.scrollTo({top: yPosition+10, behavior: 'smooth'}) :
+                                                   window.scrollTo({top: yPosition-30, behavior: 'smooth'})
+
+
+
+}
+
+export default handleTreatmentClick;
+

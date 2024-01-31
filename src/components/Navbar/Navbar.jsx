@@ -20,11 +20,10 @@ const Navbar = ( {contentfulData, treatmentsRef, isSmallScreen, useElementsHeigh
 
 
   return (
-    <div>
-        <div className="navbarwrapper" id='navbar'>
-            <div id='uppernavbar'>
+        <div className="navbar-wrapper" id='navbar'>
+            <div id='upper-navbar'>
               <Logo navigate={navigate} location={location} />
-              <Sociallinks isSmallScreen={isSmallScreen} />
+              {/* <Sociallinks isSmallScreen={isSmallScreen} /> */}
               <Branches useHovered={ [hovered, setHovered] } isSmallScreen={isSmallScreen}
               useFocused={ [focused, setFocused] } useBlured={ [blured, setBlured] }
               contentfulData={contentfulData} navigate={navigate} treatmentsRef={treatmentsRef}
@@ -32,14 +31,13 @@ const Navbar = ( {contentfulData, treatmentsRef, isSmallScreen, useElementsHeigh
             </div>
             <NavbarLine useHovered={ [hovered, setHovered] } isSmallScreen={isSmallScreen}
              location={location} useActivateBurgermenu={[burgerMenuActivated, setBurgerMenuActivated]} navigate={navigate}
-             elementsHeight={elementsHeight} contentfulData={contentfulData} treatmentsRef={treatmentsRef}/>
+             useElementsHeight={useElementsHeight} contentfulData={contentfulData} treatmentsRef={treatmentsRef}/>
             {/* {burgerMenuActivated && 
             <Burgermenu contentfulData={contentfulData} setBurgerMenuActivated={setBurgerMenuActivated}
              navigate={navigate} treatmentsRef={treatmentsRef} elementsHeight={elementsHeight} />}  */}
              {/* <div className="scrollunderline"></div> */}
         
         </div>
-    </div>
   )
 }
 

@@ -9,7 +9,7 @@ import addClassNames from './helpers/addClassNames';
 
 const Branch = props => {
   const { isSmallScreen, branchName, useBlured, useHovered, useFocused,
-          location, contentfulData, navigate, treatmentsRef  } = props;
+    location, contentfulData, navigate, treatmentsRef } = props;
 
   const [hovered, setHovered] = useHovered;
   const [focused, setFocused] = useFocused;
@@ -35,45 +35,71 @@ const Branch = props => {
     location: location
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     setShowDropdown(focused);
     const branches = ['Kidscare', 'Cosmetologie', 'Bodyconcept', 'Curamedix']
-    if(!focused){
-        branches.includes(hovered) && setShowDropdown(hovered)
+    if (!focused) {
+      branches.includes(hovered) && setShowDropdown(hovered)
     }
-    if(treatmentClick){
-        setHovered(false)
-        setTreatmentClick(false)
+    if (treatmentClick) {
+      setHovered(false)
+      setTreatmentClick(false)
     }
   }, [hovered, focused, treatmentClick])
 
   return (
-    <div className='branch' onMouseLeave={()=>setHovered(false)}>
-      {isSmallScreen && 
-      <div>{branchName}</div>}
-      <div style={{backgroundImage: `url(${getLogoUrl(branchName)})`}}
-          id={branchName} alt={branchName} tabIndex={'0'}
-          className={'branchlogo ' + (addClassNames(branchName, classNameProps))} 
-          onMouseEnter={(e)=>setHovered(e.target.id)} onFocus={(e)=>focusElement(e.target.id)}
-          onBlur={(e)=>blurElement(e.target.id)}>
-            {isSmallScreen && 
-            <div style={{backgroundImage: `url(${informationSign})`}}
-                className = 'informationsign' ></div>}
+    <div
+      className='branch'
+      onMouseLeave={() => setHovered(false)}>
+      {
+        isSmallScreen &&
+          <div>{branchName}</div>
+      }
+      <div
+        style={{ backgroundImage: `url(${getLogoUrl(branchName)})` }}
+        id={branchName}
+        alt={branchName}
+        tabIndex={'0'}
+        className={'branch-logo ' + (addClassNames(branchName, classNameProps))}
+        onMouseEnter={(e) => setHovered(e.target.id)}
+        onFocus={(e) => focusElement(e.target.id)}
+        onBlur={(e) => blurElement(e.target.id)}>
+        {
+          isSmallScreen &&
+          <div
+            style={{ backgroundImage: `url(${informationSign})` }}
+            className='information-sign' ></div>
+        }
       </div>
-      {!isSmallScreen ? 
-      <div onMouseEnter={()=>setHovered(branchName)} onFocus={()=>focusElement(branchName)} 
-          onBlur={()=>blurElement(branchName)} tabIndex={'0'}
-          className={'branchname ' + (addClassNames(branchName, classNameProps, 'lightgreybackground blackcolor'))}
+      {
+        !isSmallScreen ?
+          <div
+            onMouseEnter={() => setHovered(branchName)}
+            onFocus={() => focusElement(branchName)}
+            onBlur={() => blurElement(branchName)}
+            tabIndex={'0'}
+            className={'branch-name ' + (addClassNames(branchName, classNameProps, 'lightgrey-background black-color'))}
           >{branchName}
-            <div>{getBranchDescription(branchName)}</div>
-      </div>
-      : 
-      <div>{getBranchDescription(branchName)}</div>}
-      { showDropdown === branchName && 
-      <Dropdown setFocused={setFocused} contentfulData={contentfulData} 
-                useShowDropdown={ [showDropdown, setShowDropdown] } isSmallScreen={isSmallScreen}
-                navigate={navigate} treatmentsRef={treatmentsRef} 
-                setTreatmentClick={setTreatmentClick}/>}    
+            <div>
+              {getBranchDescription(branchName)}
+            </div>
+          </div>
+          :
+          <div>
+            {getBranchDescription(branchName)}
+          </div>
+      }
+      {
+        showDropdown === branchName &&
+          <Dropdown
+            setFocused={setFocused}
+            contentfulData={contentfulData}
+            useShowDropdown={[showDropdown, setShowDropdown]}
+            isSmallScreen={isSmallScreen}
+            navigate={navigate}
+            treatmentsRef={treatmentsRef}
+            setTreatmentClick={setTreatmentClick} />
+      }
     </div>
   )
 }

@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import GetTreatments from "./components/Treatments/GetTreatments";
-import { getElementsHeight } from './components/helpers/handleTreatmentClick';
+import { getElementsHeight } from './components/helpers/messureElements';
 
 import { BrowserRouter } from "react-router-dom";
 import React, { useState, useEffect, useRef } from 'react';
@@ -30,9 +30,11 @@ function App() {
       screenSize.current <= 800 ? setIsSmallScreen(true) : setIsSmallScreen(false);
     };
 
+    console.log(elementsHeight)
+
     screenSize.current = window.innerWidth;
     screenSize.current <= 800 ? setIsSmallScreen(true) : setIsSmallScreen(false)
-    let initHeight = getElementsHeight('navbar') - 18;
+    let initHeight = getElementsHeight('navbar');
     setElementsHeight(initHeight);
 
     window.addEventListener("resize", setScreenSize)
@@ -52,7 +54,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container">
+      <div className="app-container">
         <BrowserRouter basename='/unikaPage'>
           <Navbar contentfulData={contentfulData} treatmentsRef={treatmentsRef} 
            isSmallScreen={isSmallScreen} useElementsHeight={[elementsHeight, setElementsHeight]} />

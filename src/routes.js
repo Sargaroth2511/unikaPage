@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useRoutes, useNavigate, useSearchParams } from "react-router-dom";
 
 
-import Carousel from "./components/Carousel/Carousel";
+import Carousel from "./components/Slideshow/Carousel";
 
 import BranchPage from './components/BranchPage';
 import ShopTemp from './components/ShopTemp';
@@ -39,7 +39,7 @@ const Router = ({contentfulData, dataIsLoading, isSmallScreen, treatmentsRef,
 
 
     let element = useRoutes([
-        {path:'/', element: <Carousel contentfulData={contentfulData}/>},
+        {path:'/', element: <Carousel contentfulData={contentfulData} elementsHeight={elementsHeight}/>},
         {path:'/Kidscare', element: <BranchPage contentfulData={contentfulData} 
         treatmentsRef={treatmentsRef} isSmallScreen={isSmallScreen} branch={'Kidscare'} 
         elementsHeight={elementsHeight} screenSize={screenSize} />},

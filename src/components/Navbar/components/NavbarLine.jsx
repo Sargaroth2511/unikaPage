@@ -1,20 +1,21 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState, useCallback, useRef } from 'react'
 
 import quadrat from '../../../Images/NavBar/quadrat.png'
 import MapsLocation from '../../../Images/NavBar/MapsLocation.png';
-import { getElementsHeight } from '../../helpers/handleTreatmentClick';
+import { getElementsHeight } from '../../helpers/messureElements';
 import Burgermenu from './Burgermenu/components/Burgermenu';
+import Servicemenu from './Servicemenu';
 
 
 
-const NavbarLine = ( {isSmallScreen, location, useActivateBurgermenu, navigate, elementsHeight,
+const NavbarLine = ( {isSmallScreen, location, useActivateBurgermenu, navigate, useElementsHeight,
                       contentfulData, treatmentsRef} ) => {
+  const [elementsHeight, setElementsHeight] = useElementsHeight;
   const [hitTopOfScreen, setHitTopOfScreen] = useState(false)
   const [y, setY] = useState(window.scrollY);
   const [burgerMenuActivated, setBurgerMenuActivated] = useActivateBurgermenu
-
-
-  
+  const [showServicemenuButtons, setShowServicemenuButtons] = useState(false)
+  const showButtonRef = useRef(false)
 
 
   const burgerClickHandle = () => {
@@ -22,8 +23,8 @@ const NavbarLine = ( {isSmallScreen, location, useActivateBurgermenu, navigate, 
   }
 
   useEffect(()=> {
-    let upperNavbarHeight = getElementsHeight('uppernavbar')
-    let upperNavbar = document.getElementById('uppernavbar')
+    let upperNavbar = document.getElementById('upper-navbar')
+    let upperNavbarHeight = getElementsHeight('upper-navbar')
 
     const handleScroll = () => {
       let upperNavbarRect = upperNavbar.getBoundingClientRect();
@@ -38,56 +39,89 @@ const NavbarLine = ( {isSmallScreen, location, useActivateBurgermenu, navigate, 
     };
   },[])
 
+  useEffect(() => {
+    location.pathname === '/' && setShowServicemenuButtons(false);
+  }, [location])
 
-  const addClassNames = () => {
-    switch (location.pathname) {
-      case '/Kidscare':
-        return 'lightgreybackground blackcolor';
-      case '/Cosmetologie':
-        return 'mintgreenbackground';  
-      case '/Bodyconcept':
-        return 'lightocherbackground';
-      case '/Curamedix':
-        return 'babybluebackground';
-      default:
-        return 'coolgreybackground';
+  const addClassNames = (location) => {
+    const classNames = [];
+
+    const getBackgroundColor = () => {
+      switch (location.pathname) {
+        case '/Kidscare':
+          return 'lightgrey-background';
+        case '/Cosmetologie':
+          return 'mintgreen-background';  
+        case '/Bodyconcept':
+          return 'lightocher-background';
+        case '/Curamedix':
+          return 'babyblue-background';
+        default:
+          return 'coolgrey-background';
+      }
+    }
+
+    const backgroundColor = getBackgroundColor()
+    classNames.push(backgroundColor)
+    hitTopOfScreen ? classNames.push('top-line min-height-7') : classNames.push('bottom-line min-height-4')
+    // hitTopOfScreen || showServicemenuButtons ? classNames.push('min-height-7') : classNames.push('min-height-4')
+
+    return classNames.join(' ');
+  }
+
+  const handleButtonClick = button => {
+    if (button === 'Services'){
+ 
+      setShowServicemenuButtons(!showServicemenuButtons)
+    } else {
+      navigate('/'+button)
+      setHitTopOfScreen(false)
+      setShowServicemenuButtons(false)
     }
   }
 
-  return (
-    <div id='navbarline' className={"navbarline "+ (addClassNames())
-    +(hitTopOfScreen ? ' topline': ' bottomline')}>
-    {!isSmallScreen&&<div className={'nav-buttons '+ (location.pathname !=='/unikaPage' ?'blackcolor' : '')}>
-        <div className="shop" onClick={()=>navigate('/Shop')}>Shop</div>
-        <div className="contact" onClick={()=>navigate('/Contact')}>Kontakt</div>
-        <div className="about" onClick={()=>navigate('/About')}>Über uns</div>
-    </div>}
-    {/* {isSmallScreen && <div className={'quadrat '+ (location.pathname ==='/unikaPage' ? 'invertfilter':'')}
-     onClick={()=>burgerClickHandle()} id='burger'
-        style={{backgroundImage: `url(${quadrat})`}}>
-    </div>} */}
-    {isSmallScreen && 
-      <div className={'hamburger-box' + 
-      (hitTopOfScreen ? ' hamburger-topline': ' hamburger-bottomline')}>
-        <div className={'hamburger'} 
-        onClick={()=>burgerClickHandle()} id='burger'>
-          &#x2261;</div>
-      </div>
-    }
-         
-            <Burgermenu contentfulData={contentfulData} useActivateBurgermenu={useActivateBurgermenu}
-             navigate={navigate} treatmentsRef={treatmentsRef} elementsHeight={elementsHeight}
-             setHitTopOfScreen={setHitTopOfScreen} />
-    {/* {isSmallScreen && (
-      <div className='wrapper'>
-        <a href='https://goo.gl/maps/3PsFY9dAGmZejPcv9' className='location'
-         style={{backgroundImage:`url(${MapsLocation})`}} alt="location"></a>  
-        <a id='phone' href='tel:06483911611' className={"sociallink material-icons-outlined phone "+
-         (location.pathname ==='/unikaPage' ? 'invertfilter':'')}>phone</a>
-      </div>
-     )} */}
+  // jumps on servicemenubutton toggled while scrolled down
 
-</div>
+  return (
+    <div 
+      id='navbar-line' 
+      className={"navbar-line "+ (addClassNames(location)) }>
+      {
+        !isSmallScreen && <>
+          <div className={'nav-buttons '+ (location.pathname ==='/' ? 'white-color' : 'black-color' )}>
+              <div 
+                className='services'
+                onClick={()=>handleButtonClick('Services')}
+                >Leistungen</div>
+              <div className="shop" onClick={()=>handleButtonClick('Shop')}>Shop</div>
+              <div className="contact" onClick={()=>handleButtonClick('Contact')}>Kontakt</div>
+              <div className="about" onClick={()=>handleButtonClick('About')}>Über uns</div>
+            </div>
+            
+              <Servicemenu location={location} showServicemenuButtons={showServicemenuButtons}/>
+            
+        </>
+          
+      }
+      {
+      isSmallScreen && <>
+        {/* <div className={'hamburger-box' + (hitTopOfScreen ? ' hamburger-top-line': ' hamburger-bottom-line')}> */}
+          <div 
+            className={'hamburger'} 
+            onClick={()=>burgerClickHandle()} id='burger'>
+            &#x2261;
+          </div>
+        {/* </div> */}
+        <Burgermenu 
+          contentfulData={contentfulData} 
+          useActivateBurgermenu={useActivateBurgermenu}
+          navigate={navigate} 
+          treatmentsRef={treatmentsRef} 
+          elementsHeight={elementsHeight}
+          useHitTopOfScreen={[hitTopOfScreen, setHitTopOfScreen]} />
+        </>
+      }
+    </div>
   )
 }
 

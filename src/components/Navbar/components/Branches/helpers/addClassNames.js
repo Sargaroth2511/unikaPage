@@ -2,20 +2,20 @@ const addClassNames = (id, {hovered, focused, blured, location} ,locationClass) 
     let classNames = {};    
     switch (id) {
       case 'Kidscare':
-        classNames.hoverClass = 'glowgrey';
-        classNames.focusClass = 'glowgrey focusbranch';
+        classNames.hoverClass = 'glow-grey';
+        classNames.focusClass = 'glow-grey branch-focused';
         break;
       case 'Cosmetologie':
-        classNames.hoverClass = 'glowgreen';
-        classNames.focusClass = 'glowgreen focusbranch';
+        classNames.hoverClass = 'glow-green';
+        classNames.focusClass = 'glow-green branch-focused';
         break;
       case 'Bodyconcept':
-        classNames.hoverClass = 'glowocher';
-        classNames.focusClass = 'glowocher focusbranch';
+        classNames.hoverClass = 'glow-ocher';
+        classNames.focusClass = 'glow-ocher branch-focused';
         break;
       case 'Curamedix':
-        classNames.hoverClass = 'glowblue';
-        classNames.focusClass = 'glowblue focusbranch';
+        classNames.hoverClass = 'glow-blue';
+        classNames.focusClass = 'glow-blue branch-focused';
         break;
       default:
         console.log('ClassName Error')

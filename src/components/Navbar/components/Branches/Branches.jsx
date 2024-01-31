@@ -10,7 +10,7 @@ const Branches = ( { useHovered, isSmallScreen, useFocused, useBlured,
 
 
   return (
-    <div className="branchwrapper">
+    <div className="branch-wrapper">
         {
         branches.map(branchName => (
             <Branch key={branchName} isSmallScreen={isSmallScreen} branchName={branchName} useBlured={useBlured}

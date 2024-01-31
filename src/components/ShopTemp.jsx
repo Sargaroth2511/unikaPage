@@ -2,7 +2,7 @@ import React from 'react'
 
 const ShopTemp = () => {
   return (
-    <div className='shoptemp'>Hier gehts später zum Shop</div>
+    <div className='shop-temp'>Hier gehts später zum Shop</div>
   )
 }
 

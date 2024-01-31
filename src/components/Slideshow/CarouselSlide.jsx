@@ -7,25 +7,25 @@ import spinnner from '../../Images/Carousel/Spinner-5.gif'
 const CarouselSlide = props => {
     const { slideUrl, slideTitle, slideDescription, 
             slideIndex, setSlideIndex, slideCompleteDescription, 
-            slideBranch, useFlipped, isCarouselLoading } = props
+            slideBranch, useFlipped, isCarouselLoading, elementsHeight } = props
     const [hovered, setHovered] = useState(false)
     const [flipped, setFlipped] = useFlipped;
 
-    const swipeHandler = useSwipeable(
-      {onSwipedLeft: ()=>setSlideIndex(slideIndex - 1), preventScrollOnSwipe: true ,
-      onSwipedRight: ()=>setSlideIndex(slideIndex + 1), preventScrollOnSwipe: true}
-      )
+    const swipeHandler = useSwipeable({
+      onSwipedLeft: ()=>setSlideIndex(slideIndex - 1), preventScrollOnSwipe: true,
+      onSwipedRight: ()=>setSlideIndex(slideIndex + 1), preventScrollOnSwipe: true
+    })
 
     const addClassNames = slideBranch => {
       switch (slideBranch) {
         case 'Kidscare':
-          return 'Kidscarefocus'
+          return 'kidscare-focused'
         case 'Cosmetologie':
-            return 'Cosmetologiefocus'
+            return 'cosmetologie-focused'
         case 'Bodyconcept':
-          return 'Bodyconceptfocus'
+          return 'bodyconcept-focused'
         case 'Curamedix':
-          return 'Curamedixfocus'        
+          return 'curamedix-focused'        
         default:
           break;
       }
@@ -47,10 +47,10 @@ const CarouselSlide = props => {
 
 
   return (
-    <div className='slideContainer'>
-      {!flipped && <div className="slideWrap" style={{backgroundImage: `url(${slideUrl})`}}
+    <div className='slide-container'>
+      {!flipped && <div className="slide-wrapper" style={{backgroundImage: `url(${slideUrl})`}}
       onClick={(e)=>flipCard(e)} {...swipeHandler}>
-        <div className={'textwrap ' +(addClassNames(slideBranch))}>
+        <div className={'text-wrapper ' +(addClassNames(slideBranch))}>
           <h2>{slideTitle}</h2>
           <p>{slideDescription}</p>
         </div>
@@ -67,9 +67,9 @@ const CarouselSlide = props => {
             onClick={(e)=>arrowClickHandler(e, 1)}/>
         </div>
       </div>}
-      {flipped && <div className='slideWrap' onClick={(e)=>flipCard(e)}
+      {flipped && <div className='slide-wrapper' onClick={(e)=>flipCard(e)}
         style={{backgroundImage: `url(${slideUrl})`}}>
-          <div className="slideback">
+          <div className="slide-backside">
             <h2>{slideTitle}</h2>
             <h3>{slideDescription}</h3>
             <p>{slideCompleteDescription}</p>

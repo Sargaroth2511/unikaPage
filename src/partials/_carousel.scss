@@ -1,26 +1,30 @@
 @import 'variables';
 
+.slide-container{
+    margin-top: 2vh;
+}
 
-.slideWrap{
+
+.slide-wrapper{
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-width: 280px;
     width: 80vw;
-    max-width: 800px;
+    max-width: 500px;
     min-height: 40vh;
-    margin-top: 37vh;
-    @media screen and (max-width: $medium) {
-        margin-top: 33vh;
-    }
+    // margin-top: 37vh;
+    // @media screen and (max-width: $medium) {
+    //     margin-top: 33vh;
+    // }
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.749) ;
     border-radius:5px ;
     cursor: pointer;
-    .textwrap{
+    .text-wrapper{
         box-sizing: border-box;
         position: absolute;
         left:-1%;
@@ -37,7 +41,7 @@
     }
 }
 
-.slideback{
+.slide-backside{
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -92,19 +96,19 @@ right: 1%;
     filter: drop-shadow(-3px -3px 2px black);
 }
 
-.Kidscarefocus{
+.kidscare-focused{
     background: $lightgreytransparent;
 }
 
-.Cosmetologiefocus{
+.cosmetologie-focused{
     background: $mintgreentransparent;
 }
 
-.Bodyconceptfocus{
+.bodyconcept-focused{
     background: $lightochertransparent;
 }
 
-.Curamedixfocus{
+.curamedix-focused{
     background: $babaybluetransparent;
 }    
 

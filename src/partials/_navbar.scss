@@ -1,12 +1,11 @@
 @import 'variables';
 
-.navbarwrapper{
+.navbar-wrapper{
     box-sizing: border-box;
-    position: absolute;
+    // position: absolute;
     display: flex;
     align-items: center;
     flex-direction: column;
-    // max-height: 33vh;
     width: 100vw;
     -webkit-touch-callout: none;  
     user-select: none;
@@ -18,31 +17,23 @@
     left: 0;
     z-index: 2;
 
-#uppernavbar{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 100%;
-    box-sizing: border-box;
-
-    padding-bottom: 2vh;
-
-
-}    
-
-
-
+    #upper-navbar{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding-bottom: 2vh;
+    }    
 
     .logo{
         @media screen and (max-width: $medium) {
             height: 6vh;
         }
         cursor: pointer;
-        
         min-height: 8vh;
         height: 15vh;
-        // max-height: 15vh;
         width: 70%;
         min-width: 280px;
         max-width: 1000px;
@@ -52,7 +43,7 @@
         background-size: contain;
     }
 
-    .sociallinkwrapper{
+    .social-links-wrapper{
         display: flex;
         align-items: center;
         position: absolute;
@@ -64,38 +55,32 @@
             transform: scale(1.2);
             margin-right: 2px;
         }
-
-
     }  
 
-    .mapslocation{
+    .maps-location{
         width: 1.2rem;
         height: 1.2rem;
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
-        // transform: scale(1.2);
-
     }
 
-    .sociallink{
+    .social-link{
         color: black;
         cursor: pointer;
     }
 
-    .branchwrapper{
+    .branch-wrapper{
         box-sizing: border-box;
         max-height: 60%;
         min-width: 280px;
-        // width: 80%;
         max-width: 800px;
         display: grid;
         grid-auto-flow: column;
         grid-auto-columns: 1fr;
-        // display: flex;
-        .branch{
-        box-sizing: border-box;
 
+        .branch{
+            box-sizing: border-box;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -103,9 +88,8 @@
             justify-content: flex-end;
             margin: 0px;
             position: relative;
-            
 
-            .branchlogo{
+            .branch-logo{
                 width: 100%;
                 height: 10vh;
                 max-height: 123px;
@@ -120,7 +104,7 @@
                 cursor: pointer;
             }
             
-            .branchname{
+            .branch-name{
                 cursor: pointer;
                 font-size: 1.2rem;
                 font-weight: 700;
@@ -141,9 +125,7 @@
         }
     }
 
-
-
-    .informationsign{
+    .information-sign{
         height: 4vw;
         width: 4vw;
         bottom: 17%;
@@ -154,30 +136,33 @@
         background-repeat: no-repeat;
     }
 
-    .branchnamehover{
+    .branch-name-hover{
         -webkit-box-shadow: 1px 1px 15px 2px rgba(0,0,0,0.76); 
         box-shadow: 1px 1px 15px 2px rgba(0,0,0,0.76);
         transition: -webkit-box-shadow 1s, box-shadow 1s;
     }
 
-    .glowgrey{
+    .glow-grey{
         filter: drop-shadow(5px -5px 10px #cfd5d8 ) drop-shadow(-5px -5px 10px #caaba3) saturate(130%);
         transition: filter 1s;
     }
-    .glowgreen{
+
+    .glow-green{
         filter: drop-shadow(5px -5px 10px #bee8cf) drop-shadow(-5px -5px 10px #bee8cf) saturate(130%);
         transition: filter 1s;
     }
-    .glowocher{
+
+    .glow-ocher{
         filter: drop-shadow(5px -5px 10px $ocherglow) drop-shadow(-5px -5px 10px $ocherglow) saturate(130%);
         transition: filter 1s;
     }
-    .glowblue{
+
+    .glow-blue{
         filter: drop-shadow(5px -5px 10px #bedae8) drop-shadow(-5px -5px 10px #bedae8) saturate(130%);
         transition: filter 1s;
     }
 
-    .focusbranch{
+    .branch-focused{
         transform: scale(1.2) ;
         transition: transform 0.5s;
     }
@@ -187,16 +172,17 @@
         transition: transform 2s;
     }
 
-
-    .navbarline{
+    .navbar-line{
         box-sizing: border-box;
         display: flex;
+        flex-direction: column;
         justify-content: center;
-
+        align-items: center;
         position: relative;
         width: 100%;
         -webkit-box-shadow: 0px 1px 2px 1px $treatmentbordercolor; 
         box-shadow: 0px 1px 2px 1px $treatmentbordercolor;
+
         .nav-buttons{
             display: flex;
             justify-content: space-around;
@@ -205,34 +191,40 @@
             max-width: 800px;
             color: white;
             font-size: 1.2rem;
+
             div{
                 cursor: pointer;
+                width: 15vh;
+                text-align: center;
 
             }
         }
-        .hamburger-box{
-            margin-left: auto;
 
+        // .hamburger-box{
+            // margin-left: auto;
             .hamburger{
-                font-size: 8vh;
-                padding-right: 2vw;
+                position: absolute;
+                right: 2vh;
+                font-size: 7vh;
+                // font-size: 8vh;
+                // padding-right: 2vw;
             }
+        // }
 
-          
-        }
-// classes with equal names
-        .hamburger-topline{
-            transform: translateY(-25%);
+        .hamburger-top-line{
+            // transform: translateY(-25%);
         }
 
-        .hamburger-bottomline{
-            transform: translateY(-70%);
+        .hamburger-bottom-line{
+            // transform: translateY(-70%);
         }
+
         .wrapper{
             display: flex;
             gap: 1vw;
             padding-right: 1vw;
         }
+
         .location{
             height: 2.3rem;
             width: 2.3rem;
@@ -249,29 +241,61 @@
             width: 3rem;
         }
 
-        .invertfilter{
+        .filter-inverted{
             filter: invert(100%);
         }
 
+        .servicemenu-wrapper{
+            display: flex;
+            justify-content: space-around;
+            min-width: 660px;
+            width: 60vw;
+            max-width: 800px;
+
+            & > div{
+                cursor: pointer;
+                width: 15vh;
+                text-align: center;
+            }
+        }
+
+        .font-size-0{
+            font-size: 0;
+            transition: font-size 0.2s;
+        }
+
+        .font-size-1rem{
+            font-size: 1rem;
+            transition: font-size 0.2s;
+        }
     }
 
-  
-
-    .bottomline{
+    .bottom-line{
         bottom: 0;
-        height: 4vh;
-        transition: height 0.2s;
-
+       
         margin-top: auto;
     }
 
-    .topline{
+    // height in pixels?
+
+    .min-height-4{
+        min-height: 4vh;
+        // max-height: 8vh;
+        transition: min-height 0.2s;
+    }
+
+    .min-height-7{
+        @media screen and (min-height: 800px) {
+        min-height: 4vh;
+    }
+        min-height: 7vh;
+        transition: min-height 0.2s;
+    }
+
+    .top-line{
         position: fixed;
         left: 0;
-        height: 7vh;
-        transition: height 0.2s;
-
-
+     
     }
 
     .dropdown{
@@ -292,34 +316,30 @@
         -webkit-backdrop-filter: blur(5.9px);
         border: 1px solid rgba(241, 229, 229, 0.674);
         overflow: auto;
+
         h3{
             margin: 1vh;
             text-transform: uppercase;
         }
+
         h4{
             margin: 1vh;
             margin-top: 0;
             text-transform: uppercase;
             padding-bottom: 0.5vh;
         }
+
          & :last-child{
             border-bottom: none;
             margin-bottom: 0;
         }
+
         :first-child{
             margin-top: 2px;
         }
     }
 
-    #Kidscaredropdown{
-        left:0;
-    }
-
-    #Curamedixdropdown{
-        left: -100%;
-    }
-
-    .treatmenttitle{
+    .treatment-title{
         cursor: pointer;
         list-style-type: none;
         text-align: left;
@@ -327,274 +347,29 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.635);
         padding: 2px;
         border-radius: 2px;
-    
     }
 
-
-    .treatmenttitlehover{
+    .treatment-titlehover{
         color: white;
         background: rgba(26, 25, 25, 0.555);
     }
 
-    .Kidscarefocus{
+    .kidscare-focused{
         background-color: $lightgreytransparent;
+        left:0;
+
     }
 
-    .Cosmetologiefocus{
+    .cosmetologie-focused{
         background-color: $mintgreentransparent;
     }
 
-    .Bodyconceptfocus{
+    .bodyconcept-focused{
         background-color: $lightochertransparent;
     }
 
-    .Curamedixfocus{
+    .curamedix-focused{
         background-color: $babaybluetransparent;
+        left: -100%;
     }
-    
-    @keyframes moveX {
-        0% {right:-10vw}
-        100% {right: 0vw;}
-    }
-
-    .moveleft{
-        animation: moveX 0.2s;
-        right: 0;
-    }
-
-    .moveright{
-        right: -32vw;
-        transition: right 0.2s;
-    }
-
-    .burgermenuwrapper{
-        box-sizing: border-box;
-        width: 40vw;
-        position: absolute;
-        top: 105%;
-        // overflow:hidden;
-
-
-
-        & div {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.635);
-        }
-
-        .overflowcontainer{
-        border-radius: 5px;
-            border: none;
-            overflow: hidden;
-        }
-
-      
-        // & :last-child{
-        //     border-bottom: none;
-        //     border-radius: 0px 0px 5px 5px;
-        // }
-        // & :first-child{
-        //     border-radius: 5px 5px 0px 0px;
-        // }
- 
-        @keyframes showburgermenu {
-            0% {line-height:0rem; font-size: 0rem; }
-            100% {line-height: 5rem; font-size: 1.5rem;}
-        }
-
-        @keyframes removeburgermenu {
-            0% {line-height:5rem; font-size: 1.5rem; }
-            100% {line-height: 0rem; font-size: 0rem;}
-        }
-
-        .burgermenu{
-            position: relative;
-            display: flex;
-            justify-content: center;
-            background: radial-gradient(circle, rgba(255,255,255,0.7357317927170868) 0%, rgba(237,237,237,0.738532913165266) 77%, rgba(218,218,218,0.6348914565826331) 92%);            text-transform: uppercase;
-            backdrop-filter: blur(3.9px);
-            text-align: center;
-            font-weight: 600;
-            z-index: 3;
-        }
-
-       
-        .animateshowburgermenu{
-            animation: 
-            showburgermenu 0.2s;
-            line-height: 5rem;
-            font-size: 1.5rem;
-        }
-        
-        .animateremoveburgermenu{
-            animation: 
-             removeburgermenu 0.2s;
-             line-height: 0rem;
-             font-size: 0rem;
-             border: none !important; 
-        }
-
-        .servicemenureduced{
-            // animation: animatereducewidth 0.2s;
-            font-size: 1.3rem;
-            width: 25vw;
-            transition: width 0.2s, font-size 0.2s;
-        }
-
-        .servicemenuexpanded{
-            // animation: animateincreasewidth 0.2s ;
-            font-size: 1.5rem;
-            width: 40vw;
-            transition: width 0.2s, font-size 0.2s;
-
-
-        }
-
-        .reducefontsize{
-            font-size: 1.3rem;
-            transition: font-size 0.2s;
-
-        }
-
-        .increasefontsize{
-            font-size: 1.5rem;
-            transition: font-size 0.2s;
-
-        }
-
-        .servicemenuwrapper{
-            position: absolute;
-            left: 0%;
-            top: 0;
-
-            transform: translateX(-100%);
-            border: none;
-
-            & :last-child{
-                border-bottom: none;
-            }
-            // & :first-child{
-            //     border-radius: 5px 5px 0px 0px;
-            // }
-
-
-            .servicemenu{
-                position: relative;
-                text-transform: uppercase;
-                backdrop-filter: blur(5.9px);
-                line-height: 5rem;
-                text-transform: uppercase;
-                text-align: center;
-                font-weight: 600;
-                overflow: hidden;
-            }
-
-            .glow{
-                filter: brightness(85%) saturate(200%)
-            }
-
-            .kidscarecolor{
-                background: $kidscareBackground;
-             
-            }
-
-            .cosmetologiecolor{
-                background: $cosmetologieBackground            
-            }
-
-            .bodyconceptcolor{
-                background: $bodyconceptBackground            
-            }
-
-            .curamedixcolor{
-                background: $curamedixBackground           
-
-            }
-
-            @keyframes showsubmenu {
-                // 0% {width: 0vw;}
-                // 100% {width: 40vw;}
-                0% {transform: translateX(100%); opacity: 0;}
-                100% {transform: translateX(0%); opacity: 1;}
-            }
-
-            @keyframes removesubmenu {
-                0% {transform: translateX(0); opacity: 1;}
-                100% {transform: translateX(100%); opacity: 0;}
-            }
-
-            .animateshowsubmenu{
-                animation: showsubmenu 0.2s;
-                // width: 40vw;
-            }
-
-            .animateremovesubmenu{
-                animation: removesubmenu 0.2s;
-                transform: translateX(100%);
-                opacity: 0;
-                overflow: hidden;
-                border: none !important;
-            }
-
-            @keyframes animatereducewidth {
-                0% {width: 40vw; font-size: 1.5rem;}
-                100% {width: 25vw; font-size: 1.3rem;}
-            }
-
-            @keyframes animateincreasewidth {
-                0% {width: 25vw; font-size: 1.3rem;}
-                100% {width: 40vw; font-size: 1.5rem;}
-            }
-
-       
-        }
-
-        .arrow{
-            position: absolute;
-            left: 5%;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 1.5rem;
-        }
-
-        .arrowup {
-            position: absolute;
-            left: 2%;
-            top:5%;
-            height: 1.5rem;
-
-            transform: rotate(-90deg); 
-        }
-
-        .burgersubmenuwrapper{
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            left: 0;
-            top: 0;
-
-            max-height: 70vh;
-            overflow: auto;
-            width: 50vw;
-            transform: translateX(-100%);
-            backdrop-filter: blur(3.9px);
-            border: none;
-
-            & :last-child{
-                border-bottom: none !important;
-            }
-        }
-
-        .burgerbranch{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            width: 100%;
-            line-height: 5rem;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-    }
-}
-
-// menu top points are hiding
+} 

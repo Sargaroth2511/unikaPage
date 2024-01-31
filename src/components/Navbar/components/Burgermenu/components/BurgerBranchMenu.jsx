@@ -37,13 +37,13 @@ const BurgerBranchMenu = ( { props, branch, type } ) => {
   
 
     return (
-        <div className={'burgersubmenuwrapper '}>
+        <div className={'burger-submenu-wrapper '}>
                 {contentfulData.map((data, i) => {
                     const treatment = data.slideTitle
                     const serviceType = translateType(data.slideType)
                     if (data.slideBranch === branch && branch+serviceType === type || data.slideBranch === branch && !type) 
                     return (
-                    <div className={'burgerbranch glow ' + (data.slideBranch.toLowerCase()+'color')} 
+                    <div className={'burger-branch glow ' + (data.slideBranch.toLowerCase()+'-background')} 
                     id={treatment} key={treatment} onClick={()=>treatmentClickHandle(i)}>
                     {treatment}</div>
                     ) 

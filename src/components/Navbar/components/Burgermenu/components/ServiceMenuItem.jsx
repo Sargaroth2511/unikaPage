@@ -33,10 +33,9 @@ const ServiceMenuItem = ({branch, serviceMenuProps}) => {
   return (
     <>
     <div  id={'burger'+branch.toLowerCase()} 
-          className={'servicemenu '+branch.toLowerCase()+'kidscarecolor' + 
-                    (activateServicemenu? ' animateshowsubmenu ': ' animateremovesubmenu ') +
-                    // (showBranchMenu? ' reducewidth ': ' increasewidth ') +
-                    branch.toLowerCase()+'color '+ (animateBranchMenu(activateTypeMenu, showBranchMenu, branch))}
+          className={'servicemenu '+branch.toLowerCase()+'-background' + 
+                    (activateServicemenu? ' show-submenu-animation ': ' remove-submenu-animation ') +
+                    (animateBranchMenu(activateTypeMenu, showBranchMenu, branch))}
           onClick={(e)=>branchClickHandle(e, branch, useActivateTypeMenu, useShowArrow, contentfulData, useShowBranchMenu, setServiceType)}
           >{branch}
     </div>         
@@ -45,16 +44,16 @@ const ServiceMenuItem = ({branch, serviceMenuProps}) => {
         <>
             
 
-            <div className={branch.toLowerCase()+'color servicemenu ' + 
+            <div className={branch.toLowerCase()+'-background servicemenu ' + 
                            (animateTypeMenu(branch, activateTypeMenu, serviceType, 'treatment', showBranchMenu))}
                  onClick={(e)=>typeClickHandle(e, branch, setShowBranchMenu, setServiceType, 'treatment')}
                  id={branch.toLowerCase()+'treatment'}>Behandlungen
-              {showArrow === branch && <img id={branch.toLowerCase()+'arrowUp'} className='arrowup' 
+              {showArrow === branch && <img id={branch.toLowerCase()+'arrowUp'} className='arrow-up' 
             src={rightarrow} alt="arrow" 
             onClick={(e)=>branchClickHandle(e, branch, useActivateTypeMenu, useShowArrow, contentfulData, useShowBranchMenu, setServiceType)}/>}
             </div>
 
-            <div className={branch.toLowerCase()+'color servicemenu ' + 
+            <div className={branch.toLowerCase()+'-background servicemenu ' + 
                            (animateTypeMenu(branch, activateTypeMenu, serviceType, 'course', showBranchMenu))}
                  onClick={(e)=>typeClickHandle(e, branch, setShowBranchMenu, setServiceType, 'course')}
                  id={branch.toLowerCase()+'course'}>Kurse

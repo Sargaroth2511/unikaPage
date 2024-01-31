@@ -35,11 +35,11 @@ const ServiceMenu = ( {useActivateServicemenu, contentfulData, useActivateBurger
 
 
   return (
-    <div className={'servicemenuwrapper '+(showBranchMenu ? 'servicemenureduced' : 'servicemenuexpanded')}>
+    <div className={'burgermenu-servicemenu-wrapper '+(showBranchMenu ? 'servicemenu-reduced' : 'servicemenu-expanded')}>
         {showBranchMenu && 
         <BurgerBranchMenu props={branchMenuProps} branch={showBranchMenu} type={serviceType}/>
         }
-        <div className='overflowcontainer'>
+        <div className='overflow-container'>
         <ServiceMenuItem branch={'Kidscare'} serviceMenuProps={serviceMenuProps}/>
         <ServiceMenuItem branch={'Cosmetologie'} serviceMenuProps={serviceMenuProps}/>
         <ServiceMenuItem branch={'Bodyconcept'} serviceMenuProps={serviceMenuProps}/>
